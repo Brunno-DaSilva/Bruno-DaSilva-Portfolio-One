@@ -1,0 +1,317 @@
+/********************************************************************
+*           Bruno DaSilva                                           *
+*           Portfolio                                               *
+*           Additional CSS Style                                    *
+*********************************************************************/
+
+#page {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.offcanvas #page {
+  overflow: hidden;
+  position: absolute;
+}
+.offcanvas #page:after {
+  -webkit-transition: 2s;
+  -o-transition: 2s;
+  transition: 2s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  background: rgba(0, 0, 0, 0.7);
+  content: "";
+}
+
+/*Added ON FEB22*/
+iframe {
+  border: 12px solid #d1d1d1;
+  border-radius: 20px;
+  box-shadow: 0 0 20px 0 #485e74b3;
+}
+/*End-Added ON FEB22*/
+
+#portfolioProjects a {
+  color: #485e74b3;
+  font-size: 2em;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+a {
+  color: #485e74b3;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+a:hover,
+a:active,
+a:focus {
+  color: #485e74b3 !important;
+  background-color: none !important;
+  outline: none;
+  text-decoration: none;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #485e74c7;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+}
+
+::-webkit-selection {
+  color: white;
+  background: rgb(34, 198, 204);
+}
+
+::-moz-selection {
+  color: white;
+  background: rgb(34, 198, 204);
+}
+
+::selection {
+  color: white;
+  background: rgb(34, 198, 204);
+}
+
+.fh5co-heading {
+  margin-bottom: 2em;
+}
+.fh5co-heading.fh5co-heading-sm {
+  margin-bottom: 2em;
+}
+.fh5co-heading h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: #000;
+}
+.fh5co-heading p {
+  font-size: 20px;
+  line-height: 1.5;
+  color: #485e74d8;
+}
+
+#fh5co-footer {
+  background: #efefef;
+}
+#fh5co-footer .fh5co-footer-links {
+  padding: 0;
+  margin: 0;
+}
+/*
+*
+*
+*/
+/*
+*
+*
+/********************************************************************
+*    Hide MobileImage Galery from Big Screens                       *
+*********************************************************************
+*
+*
+*/
+
+#portfolioProjects #home .container-gallery {
+  display: none;
+}
+
+/*
+*
+*
+*
+*
+*/
+/*
+*
+*********************************************************************
+*   Media Query Portfolio Addition max-width: 768px                 *
+*********************************************************************  
+*
+*
+*/
+@media screen and (max-width: 768px) {
+  #fh5co-footer .fh5co-footer-links {
+    margin-bottom: 30px;
+  }
+  #portfolioProjects a {
+    color: #485e74b3;
+    font-size: 1.5em;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+  }
+  #portfolioProjects #home iframe {
+    display: none;
+  }
+
+  #portfolioProjects .tab-content h2 {
+    font-size: 1.5em;
+  }
+  #portfolioProjects #home .container-gallery {
+    display: inline-block;
+  }
+
+  /*Image Gallery For mobile*/
+  #portfolioProjects #home .container-gallery .img-grid img {
+    max-width: 100%;
+  }
+  #portfolioProjects #home .container-gallery .img-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5px;
+  }
+
+  #home .container-gallery {
+    align-items: center;
+    text-align: center;
+  }
+
+  #portfolioProjects #menu2 .container-gallery {
+    display: inline-block;
+  }
+  #portfolioProjects #menu2 .container-gallery .img-grid img {
+    max-width: 100%;
+  }
+  #portfolioProjects #menu2 .container-gallery .img-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 5px;
+  }
+}
+/*
+*
+*
+*
+*
+*/
+/*
+*
+*********************************************************************
+*=====END Media Query Portfolio Addition max-width: 768px           *
+*********************************************************************  
+*
+*
+*/
+@media screen and (max-width: 460px) {
+  #portfolioProjects a {
+    color: #485e74b3;
+    font-size: 1em;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  #portfolioProjects .tab-content h2 {
+    font-size: 1.1em;
+  }
+
+  #portfolioProjects #home iframe {
+    display: none;
+  }
+
+  #portfolioProjects #home .container-gallery {
+    display: inline-block;
+  }
+}
+
+#fh5co-footer .fh5co-footer-links li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-bottom: 1px dotted black;
+}
+#fh5co-footer .fh5co-footer-links li a {
+  color: #000;
+  text-decoration: none;
+}
+#fh5co-footer .fh5co-footer-links li a:hover {
+  text-decoration: underline;
+}
+#fh5co-footer .fh5co-widget {
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 768px) {
+  #fh5co-footer .fh5co-widget {
+    text-align: left;
+  }
+}
+
+#fh5co-footer .fh5co-widget h3 {
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+#fh5co-footer .copyright .block {
+  display: block;
+}
+
+.gototop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.gototop.active {
+  opacity: 1;
+  visibility: visible;
+}
+.gototop a {
+  width: 55px;
+  height: 55px;
+  display: table;
+  color: white;
+  background: #ffcc5c;
+  text-align: center;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  opacity: 0.7;
+}
+.gototop a:hover {
+  background: #ffcc5c !important;
+  opacity: 0.9;
+}
+.gototop a i {
+  height: 50px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.gototop a:hover,
+.gototop a:active,
+.gototop a:focus {
+  text-decoration: none;
+  outline: none;
+  background: #ffcc5c;
+}
+
+.js .animate-box {
+  opacity: 0;
+}

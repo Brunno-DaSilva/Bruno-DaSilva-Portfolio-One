@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+    Class:   IMED-1341.WW1: Interface Design   
+    Project: Semester Project - MissionNow NGO
+    Author:  Bruno Leandro da Silva
+    Date:    11/02/2017     
+   -->
+    <title>MissionNow</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/npg" href="logoicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        background-color: #dbdee0;
+      }
+      .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+        background-color: #002851;
+        color: #b3995d;
+        padding: 1% 0;
+        font-size: 1.3em;
+        border: 0;
+        border-bottom: 3px solid #b3995d;
+      }
+      .navbar-brand {
+        float: left;
+        min-height: 10px;
+        max-height: 10px;
+        padding: 0 15px 5px;
+      }
+
+      .navbar-inverse .navbar-nav .active a,
+      .navbar-inverse .navbar-nav .active a:focus,
+      .navbar-inverse .navbar-nav {
+        color: #b3995d;
+        background-color: #002851;
+      }
+      .navbar-inverse .navbar-nav > .open > a,
+      .navbar-inverse .navbar-nav > .open > a:focus,
+      .navbar-inverse .navbar-nav > .open > a:hover {
+        color: rgba(52, 181, 241, 0.99);
+        background-color: #002851;
+      }
+
+      .navbar-inverse .navbar-nav > .active > a,
+      .navbar-inverse .navbar-nav > .active > a:focus,
+      .navbar-inverse .navbar-nav > .active > a:hover {
+        color: rgba(52, 181, 241, 0.99);
+        background-color: #002851;
+      }
+
+      .dropdown-menu {
+        color: rgba(52, 181, 241, 0.99) !important;
+        background-color: #002851 !important;
+      }
+
+      .dropdown-menu:hover {
+        color: #b3995d !important;
+        background-color: #002851 !important;
+      }
+
+      .dropdown-menu > li > a:focus,
+      .dropdown-menu > li > a:hover {
+        color: #262626;
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .navbar-inverse .navbar-nav li a {
+        color: #b3995d;
+      }
+      .navbar-inverse .navbar-nav li a:hover {
+        color: rgba(52, 181, 241, 0.99);
+      }
+
+      .texttitle {
+        color: rgb(0, 40, 81);
+        font-size: 25px;
+      }
+      .person {
+        border: 10px solid transparent;
+        margin-bottom: 25px;
+        display: inline-block;
+        width: 80%;
+        height: 80%;
+        opacity: 0.8;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+      }
+      .person:hover {
+        border-color: rgba(236, 185, 57, 0.96);
+        opacity: 1;
+        -webkit-filter: none;
+        filter: none;
+      }
+
+      .carousel-caption {
+        top: 50%;
+        transform: translatey(-50%);
+        text-transform: uppercase;
+        color: rgb(0, 40, 81);
+        opacity: 0.9;
+      }
+      .carousel {
+        border-bottom: 3px solid #b3995d;
+        width: 100%;
+        height: 100%;
+      }
+      .btn {
+        font-size: 15px;
+        color: #b3995d;
+        padding: 12px 22px;
+        background: #002851;
+        border: 2px solid;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px #1211117e;
+      }
+
+      #asyouare p,
+      #betransformed p,
+      #makedifference p {
+        text-align: left;
+      }
+
+      .btn:hover {
+        color: rgba(122, 200, 236, 0.99);
+        background-color: #002851;
+        border: 2px solid #b3995d;
+      }
+
+      .bg-1 {
+        background-image: linear-gradient(
+          to bottom,
+          rgb(20, 96, 172),
+          rgb(20, 96, 172),
+          rgb(20, 96, 172),
+          rgb(0, 40, 81),
+          rgb(0, 40, 81)
+        );
+        color: #bdbdbd;
+        border-top: 3px solid #b3995d;
+        border-bottom: 3px solid #b3995d;
+      }
+      .bg-1 h3 {
+        color: #fff;
+      }
+      .bg-1 p {
+        font-style: italic;
+      }
+
+      /* Remove rounded borders from list */
+      .list-group-item:first-child {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+      }
+
+      .list-group-item:last-child {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      /* Remove border and add padding to thumbnails */
+      .thumbnail {
+        padding: 0 0 15px 0;
+        border: 5px solid rgba(52, 181, 241, 0.99);
+        border-radius: 15px;
+        margin-bottom: 25px;
+        display: inline-block;
+        width: 80%;
+        height: 80%;
+        box-shadow: 2px 2px 10px #1211117e;
+      }
+
+      .thumbnail img {
+        border-radius: 10px;
+      }
+
+      .thumbnail p {
+        margin-top: 15px;
+        color: #555;
+      }
+
+      .thumbnail img {
+        opacity: 0.7;
+      }
+
+      .container {
+        margin: 4% auto;
+      }
+
+      h2 {
+        text-align: center;
+        color: #002851;
+      }
+
+      #icon1 {
+        margin: 1% auto;
+        max-width: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+      }
+      #icon2 {
+        margin: 1% auto;
+        max-width: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+      }
+
+      #icon3 {
+        margin: 1% auto;
+        max-width: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+      }
+
+      h4 {
+        text-align: center;
+        color: #002851;
+      }
+
+      .text {
+        max-width: 80%;
+        margin: auto;
+        font-size: 1.2em;
+      }
+
+      .text2 {
+        max-width: 80%;
+        margin: auto;
+        color: white !important;
+        font-size: 1.2em;
+        background-color: #002851;
+        border: solid 2px #002851;
+        border-radius: 25px;
+        padding: 10px;
+        box-shadow: 10px 10px 20px #1211117e;
+      }
+
+      .text2 p {
+        padding: 2%;
+        margin-right: 5%;
+        margin-left: 5%;
+      }
+
+      #ourvision h4 {
+        color: white;
+      }
+      .getinvolved {
+        font-size: 1.7em;
+      }
+
+      footer {
+        width: 100%;
+        background-color: #002851;
+        padding: 8px;
+        color: #b3995d;
+        border-top: 3px solid #b3995d;
+      }
+      .footertitle,
+      a {
+        font-size: 20px;
+      }
+      .footer {
+        color: #b3995d;
+      }
+      .fa {
+        padding: 20px;
+        font-size: 25px;
+        color: #b3995d;
+      }
+      .fa:hover {
+        color: rgba(52, 181, 241, 0.99);
+        text-decoration: none;
+      }
+
+      .tooltip-inner {
+        background-color: rgb(11, 110, 231);
+        color: #fff;
+        border: 1px solid #b3995d;
+      }
+
+      @media (max-width: 900px) {
+        .fa {
+          font-size: 20px;
+          padding: 10px;
+        }
+      }
+      @media (max-width: 600px) {
+        #icon1 {
+          max-width: 150px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 50%;
+        }
+        #icon2 {
+          max-width: 150px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 50%;
+        }
+        #icon3 {
+          max-width: 150px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 50%;
+        }
+        h2 {
+          font-size: 1.7em;
+          text-align: center;
+          color: #002851;
+        }
+        .thumbnail {
+          padding: 0 0 15px 0;
+          border: 2px solid rgba(52, 181, 241, 0.99);
+          border-radius: 0;
+          margin-bottom: 25px;
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body
+    id="index.html"
+    data-spy="scroll"
+    data-target=".navbar"
+    data-offset="50"
+  >
+    <!--- Navigation Bar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"
+            ><img src="missions-now-small.png" alt="Logo"
+          /></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+
+            <li class="dropdown">
+              <a
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                href="about.html"
+                >About
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#ourhistory">Our History</a></li>
+                <li><a href="#ourvision">Our Vision</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                href="#training.html"
+                >Training
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="training.html">Disciple Training School</a></li>
+                <li><a href="training.html">School Of Evangelism</a></li>
+                <li><a href="training.html">Children at RisK School</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                href="#project.html"
+                >Project
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="project.html">Hope House</a></li>
+                <li><a href="project.html">Soccer Ministry</a></li>
+                <li><a href="project.html">Street Team</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#donate">Donate</a></li>
+            <li>
+              <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="ourhistory" class="container">
+      <div class="text">
+        <h4 class="getinvolved">Our History</h4>
+        <p>
+          MissionNow, Brazil, was inaugurated in 1986. Five years later, Mati
+          and Julie Gali together with Bob and Magda Emberley and some others,
+          began to develop the MissionNow ministry, Projeto Pequinnos (Project
+          Little Ones) which reached out to the little children who on the
+          streets of Recife.
+        </p>
+        <p>
+          God blessed the ministry and provided a small farm for a base in the
+          nearby town of Camaragibe which later became the MissionNow base.Today
+          Mati and Julie Gali are the leaders of the MissionNow Recife base
+          which has a focus on children, street kids and children at risk.
+        </p>
+        <p class="hidden-xs hidden-sm">
+          Mati, born and raised in Samoa, South Pacific joined MissionNow in
+          1988. Julie was born in Canada and did her DTS in Tyler, Texas, in
+          1985, before coming to Brazil in 1991. They met and married in Belo
+          Horizonte, Brazil, while working at the Restoration House with
+          MissionNow. They have three children; Jordan, Cory and Sarah.
+        </p>
+        <p class="hidden-xs hidden-sm">
+          Over the years, missionaries from various nations and from within
+          Brazil have responded to God’s call to help these lost children. This
+          has resulted in the restoration of hundreds of young lives some of
+          whom are now missionaries in Brazil and other countries. Mati and
+          Julie also travel and minister in China, Haiti, India, England and the
+          South Pacific. Their ministry at home and abroad touches the nations.
+        </p>
+      </div>
+    </div>
+
+    <div id="ourvision" class="container">
+      <div class="text2">
+        <h4 class="getinvolved">Our Vision</h4>
+        <p>
+          Founded in 1960 by Loren and Darlene Cunningham in Lausanne,
+          Switzerland, MissionNow is now present on five continents, with
+          approximately 1,000 bases in about 180 countries (more than 40 in the
+          10/40 Window). MissionNow has around 18,000 full-time workers who are
+          working to fulfil the commandments of Jesus.
+        </p>
+        <p class="hidden-xs hidden-sm">
+          Through short-term mobile teams MissionNow ministers to all the
+          nations of the world mobilizing annually around 30,000 students and
+          volunteers.
+        </p>
+        <p class="hidden-xs hidden-sm">
+          MissionNow seeks to awaken as many Christians as possible by involving
+          them in the seven most influential areas of society: Government,
+          Economy, Church, Family, Education, Communication and Celebration.
+        </p>
+      </div>
+    </div>
+
+    <br /><br />
+    <!---End of the img-->
+
+    <div class="bg-1">
+      <div id="donate" class="container">
+        <h3 class="text-center">
+          Help MisisonNow Help Children. Together we can go further.
+        </h3>
+        <p class="text-center">
+          Thank you for your interest in contributing to the work we are doing
+          here at MissionNow. Your help is precious to us and we are grateful.
+        </p>
+      </div>
+      <div class="row text-center">
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img src="hopehouse2.jpg" alt="Hope House" />
+            <p><strong>Hope House</strong></p>
+            <p>Help us to rescue children at risk</p>
+            <button class="btn" data-toggle="modal" data-target="#myModal">
+              Donate
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img src="showdebola2.png" alt="Show de Bola" />
+            <p><strong>Soccer Ministry Show de Bola</strong></p>
+            <p>Changing lives of over 150 Boys&Girls</p>
+            <button class="btn" data-toggle="modal" data-target="#myModal">
+              Donate
+            </button>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <img src="streetteam2.png" alt="Street Team" />
+            <p><strong>Street Team</strong></p>
+            <p>The first step is to develop a relationship.</p>
+            <button class="btn" data-toggle="modal" data-target="#myModal">
+              Donate
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+              <h4><span class="glyphicon glyphicon-lock"></span> Donate</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label
+                    ><span class="glyphicon glyphicon-shopping-cart"></span>
+                    Donate:
+                  </label>
+                  <label class="radio-inline"
+                    ><input type="radio" name="optradio" />$25.00</label
+                  >
+                  <label class="radio-inline"
+                    ><input type="radio" name="optradio" />$50.00</label
+                  >
+                  <label class="radio-inline"
+                    ><input type="radio" name="optradio" />$100.00
+                  </label>
+                  <label for="usrname4"
+                    ><input
+                      type="text"
+                      class="form-control"
+                      id="usrname4"
+                      placeholder="I wish to Donate More"
+                  /></label>
+                </div>
+
+                <div class="form-group">
+                  <label
+                    ><span class="glyphicon glyphicon-user"></span> Contact
+                    Information</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="usrname1"
+                    placeholder="Enter Full Name"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="usrname2"
+                    placeholder="Enter Email"
+                  />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="usrname3"
+                    placeholder="Enter Phone Number"
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-block">
+                  Donate
+                  <span class="glyphicon glyphicon-ok"></span>
+                </button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-danger btn-default pull-left"
+                data-dismiss="modal"
+              >
+                <span class="glyphicon glyphicon-remove"></span> Cancel
+              </button>
+              <p>Need <a href="#">help?</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="contact" class="container">
+      <h3 class="text-center">Contact</h3>
+      <p class="text-center"><em>We Are Exicited to Meet You!</em></p>
+      <div class="row test">
+        <div class="col-md-4">
+          <p>Contact Information:</p>
+          <p>
+            <span class="glyphicon glyphicon-map-marker"></span> Rua Josadark
+            Alves de França, 11 Santa Mônica - CEP 54767-620 Camaragibe –
+            Pernambuco / Brazi
+          </p>
+          <p>
+            <span class="glyphicon glyphicon-phone"></span> Office: +55(81)
+            3458-2688
+          </p>
+          <p>
+            <span class="glyphicon glyphicon-envelope"></span> Email:
+            AskMission@MissionNow.com
+          </p>
+        </div>
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <input
+                class="form-control"
+                id="name"
+                name="name"
+                placeholder="Name"
+                type="text"
+                required
+              />
+            </div>
+            <div class="col-sm-6 form-group">
+              <input
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Email"
+                type="email"
+                required
+              />
+            </div>
+          </div>
+          <textarea
+            class="form-control"
+            id="comments"
+            name="comments"
+            placeholder="Comment"
+            rows="5"
+          ></textarea>
+          <br />
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <button class="btn pull-right" type="submit">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!---Footer -->
+    <footer class="text-center">
+      <div>
+        <a
+          class="up-arrow"
+          href="#index.html"
+          data-toggle="tooltip"
+          title="TO TOP"
+        >
+          <span class="glyphicon glyphicon-chevron-up"></span
+        ></a>
+        <br /><br />
+        <h3 class="footertitle">
+          &copy; <b>MissionNow</b><i> Non Governmental Organization</i>, 2017
+        </h3>
+        <a
+          href="https://www.facebook.com/JOCUM-Recife-Brasil-208572682488350/"
+          class="fa fa-facebook"
+        ></a>
+        <a
+          href="https://twitter.com/jocumrecife?lang=en"
+          class="fa fa-twitter"
+        ></a>
+        <a
+          href="https://www.instagram.com/explore/locations/212965690/"
+          class="fa fa-instagram"
+        ></a>
+        <a
+          href="https://www.youtube.com/channel/UCs0qLw_GGLJpI-XK5SdQtrg"
+          class="fa fa-youtube"
+        ></a>
+      </div>
+      <button
+        type="button"
+        class="btn btn-info btn-lg"
+        data-toggle="modal"
+        data-target="#myModal1"
+      >
+        Privacy Policy
+      </button>
+
+      <!-- Modal -->
+      <div id="myModal1" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+              <h4 class="modal-title">MissionNow Disclosure</h4>
+            </div>
+            <div class="modal-body">
+              <h4>Privacy Policy</h4>
+              <p>
+                This privacy notice discloses the privacy practices for
+                MissionNow.com. This privacy notice applies solely to
+                information collected by this website. It will notify you of the
+                following:
+              </p>
+              <br />
+              <ul>
+                <li>
+                  What personally identifiable information is collected from you
+                  through the website, how it is used and with whom it may be
+                  shared.
+                </li>
+                <li>
+                  What choices are available to you regarding the use of your
+                  data.
+                </li>
+                <li>
+                  The security procedures in place to protect the misuse of your
+                  information.
+                </li>
+                <li>
+                  >How you can correct any inaccuracies in the information.
+                </li>
+              </ul>
+
+              <br />
+              <h4>Information Collection, Use, and Sharing</h4>
+              <p>
+                We are the sole owners of the information collected on this
+                site. We only have access to/collect information that you
+                voluntarily give us via email or other direct contact from you.
+                We will not sell or rent this information to anyone.
+              </p>
+              <p>
+                We will use your information to respond to you, regarding the
+                reason you contacted us. We will not share your information with
+                any third party outside of our organization, other than as
+                necessary to fulfill your request, e.g. to ship an order.
+              </p>
+              <p>
+                Unless you ask us not to, we may contact you via email in the
+                future to tell you about specials, new products or services, or
+                changes to this privacy policy.
+              </p>
+              <br />
+              <h4>Your Access to and Control Over Information</h4>
+              <p>
+                You may opt out of any future contacts from us at any time. You
+                can do the following at any time by contacting us via the email
+                address or phone number given on our website:
+              </p>
+              <br />
+              <ul>
+                <li>See what data we have about you, if any.</li>
+                <li>Change/correct any data we have about you.</li>
+                <li>Have us delete any data we have about you.</li>
+                <li>
+                  Express any concern you have about our use of your data.
+                </li>
+              </ul>
+              <br />
+              <h4>Security</h4>
+              <p>
+                We take precautions to protect your information. When you submit
+                sensitive information via the website, your information is
+                protected both online and offline.
+              </p>
+              <p>
+                Wherever we collect sensitive information (such as credit card
+                data), that information is encrypted and transmitted to us in a
+                secure way. You can verify this by looking for a lock icon in
+                the address bar and looking for "https" at the beginning of the
+                address of the Web page.
+              </p>
+              <p>
+                While we use encryption to protect sensitive information
+                transmitted online, we also protect your information offline.
+                Only employees who need the information to perform a specific
+                job (for example, billing or customer service) are granted
+                access to personally identifiable information. The
+                computers/servers in which we store personally identifiable
+                information are kept in a secure environment.
+              </p>
+              <br />
+              <p>
+                <b
+                  >If you feel that we are not abiding by this privacy policy,
+                  you should contact us immediately via telephone at Office:
+                  +55(81) 3458-2688 or via email at
+                  AskMission@MissionNow.com.</b
+                >
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(function() {
+        // Initialize Tooltip
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Add smooth scrolling to all links in navbar + footer link
+        $(".navbar a, footer a[href='#myPage']").on("click", function(event) {
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $("html, body").animate(
+              {
+                scrollTop: $(hash).offset().top
+              },
+              900,
+              function() {
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              }
+            );
+          } // End if
+        });
+      });
+    </script>
+  </body>
+</html>
