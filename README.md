@@ -1,6 +1,6 @@
 # Bruno-DaSilva-Portfolio-One
 
-##### Demo: https://dasilvabrunotexas.github.io/Bruno-DaSilva-Portfolio-One/#portfolioProjects
+### Demo: https://brunno-dasilva.github.io/Bruno-DaSilva-Portfolio-One/#portfolioProjects
 
 ### About The Project
 
@@ -52,3 +52,5 @@ In the future, I would like to add in my portfolio, couple more projects but kee
 ###### Footer
 
         1 - Logo, links to Social Media Icons and Thank you note.
+
+### Demo: https://brunno-dasilva.github.io/Bruno-DaSilva-Portfolio-One/#portfolioProjects
